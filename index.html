@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chamico Food Store</title>
+  <style>
+    /* Reset */
+    * {
+      box-sizing: border-box;
+      margin: 0; padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 15px;
+      color: #444;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+      color: #fff;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+    header p {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+    a.phone-link {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    main {
+      display: flex;
+      gap: 40px;
+      max-width: 1100px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+      overflow: hidden;
+      animation: fadeInUp 1s ease forwards;
+      flex-wrap: wrap;
+      padding: 30px;
+    }
+
+    /* Menu grid */
+    .menu {
+      flex: 1 1 480px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+    .menu-item {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding-bottom: 15px;
+    }
+    .menu-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    }
+    .menu-item img {
+      width: 100%;
+      max-height: 160px;
+      object-fit: cover;
+      border-radius: 18px 18px 0 0;
+      user-select: none;
+    }
+    .menu-item h3 {
+      color: #ff6f61;
+      margin: 15px 0 8px;
+      font-size: 1.25rem;
+    }
+    .menu-item p {
+      font-size: 0.9rem;
+      color: #666;
+      padding: 0 15px;
+      user-select: none;
+    }
+
+    /* Order form */
+    .order {
+      flex: 1 1 380px;
+      background: #ff6f61;
+      border-radius: 18px;
+      padding: 30px 25px;
+      color: #fff;
+      box-shadow: 0 8px 24px rgba(255,111,97,0.4);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .order h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2rem;
+      letter-spacing: 1px;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    }
+    .order label {
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 6px;
+      display: block;
+    }
+    .order input, .order textarea, .order select {
+      width: 100%;
+      padding: 12px 15px;
+      margin-bottom: 20px;
+      border-radius: 12px;
+      border: none;
+      font-size: 1rem;
+      outline: none;
+      box-shadow: inset 0 0 6px rgba(255,255,255,0.5);
+      background: rgba(255, 255, 255, 0.85);
+      color: #444;
+      transition: box-shadow 0.3s ease;
+    }
+    .order input:focus, .order textarea:focus, .order select:focus {
+      box-shadow: 0 0 8px 3px rgba(255, 111, 97, 0.7);
+      background: #fff;
+    }
+    .order button {
+      background: #fff;
+      color: #ff6f61;
+      font-weight: 700;
+      font-size: 1.2rem;
+      border-radius: 14px;
+      padding: 15px;
+      cursor: pointer;
+      border: none;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    .order button:hover {
+      background: #ff5a4b;
+      color: #fff;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      main {
+        flex-direction: column;
+        padding: 20px;
+      }
+      .menu, .order {
+        flex: 1 1 100%;
+      }
+      .menu {
+        grid-template-columns: 1fr;
+      }
+      .order {
+        margin-top: 30px;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🍛 Chamico Food Store</h1>
+  <p>Call or WhatsApp: <a href="tel:0760277502" class="phone-link">0760277502</a></p>
+</header>
+
+<main>
+  <section class="menu" aria-label="Food Menu">
+    <article class="menu-item" tabindex="0" aria-label="Rice and Curry for 400 LKR">
+      <img src="https://cdn.pixabay.com/photo/2016/12/26/17/28/rice-1932464_960_720.jpg" alt="Rice and Curry" />
+      <h3>Rice & Curry - Rs. 400</h3>
+      <p>🍛 With Dhal Curry, Coconut Sambol, and Chicken Curry</p>
+    </article>
+
+    <article class="menu-item" tabindex="0" aria-label="Fried Rice for 450 LKR">
+      <img src="https://cdn.pixabay.com/photo/2016/03/05/19/02/food-1239246_960_720.jpg" alt="Fried Rice" />
+      <h3>Fried Rice - Rs. 450</h3>
+      <p>🍽️ With Chili Paste, Chicken Devilled, and Vegetable Chop Suey</p>
+    </article>
+
+    <article class="menu-item" tabindex="0" aria-label="Biriyani for 450 LKR">
+      <img src="https://cdn.pixabay.com/photo/2020/08/07/07/53/biryani-5469759_960_720.jpg" alt="Biriyani" />
+      <h3>Biriyani - Rs. 450</h3>
+      <p>🍗 With Chicken Curry, Mint Leaf Sambol, and Malay Pickle</p>
+    </article>
+  </section>
+
+  <section class="order" aria-label="Place your order">
+    <h2>Place Your Order</h2>
+    <form id="orderForm">
+      <label for="name">Your Name:</label>
+      <input type="text" id="name" name="name" required autocomplete="name" />
+
+      <label for="address">Your Address:</label>
+      <textarea id="address" name="address" rows="3" required></textarea>
+
+      <label for="item">Select Item:</label>
+      <select id="item" name="item">
+        <option>Rice & Curry - Rs. 400</option>
+        <option>Fried Rice - Rs. 450</option>
+        <option>Biriyani - Rs. 450</option>
+      </select>
+
+      <label for="quantity">Quantity:</label>
+      <input type="number" id="quantity" name="quantity" min="1" value="1" required />
+
+      <button type="submit" aria-label="Submit your order">Order Now</button>
+    </form>
+  </section>
+</main>
+
+<script>
+  document.getElementById("orderForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const address = document.getElementById("address").value.trim();
+    const item = document.getElementById("item").value;
+    const quantity = document.getElementById("quantity").value;
+
+    const confirmOrder = confirm(`Confirm your order:\n${item} x${quantity}\nTo: ${address}`);
+    if (!confirmOrder) return;
+
+    const whatsappMsg = `Hello Chaniru! 👋\nI'd like to order:\n🍽️ ${item} x${quantity}\n🧍 ${name}\n🏠 ${address}`;
+    const waLink = `https://wa.me/94760277502?text=${encodeURIComponent(whatsappMsg)}`;
+    window.open(waLink, "_blank");
+
+    document.getElementById("orderForm").reset();
+  });
+</script>
+
+</body>
+</html>
